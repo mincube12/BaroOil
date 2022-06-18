@@ -1,14 +1,43 @@
 package com.example.barooil;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Map extends AppCompatActivity {
+public class Map extends AppCompatActivity
+    implements OnMapReadyCallback {
+
+    private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        SupportMapFragment mapFragment=(SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+            mapFragment.getMapAsync(this);
+        }
+
+        @Override
+        public void onMapReady(final GoogleMap googleMap) { //이부분을 API 활용 해야할듯
+
+            mMap = googleMap;
+
+            LatLng SEOUL = new LatLng(37.56, 126.97);
+
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(SEOUL);
+            markerOptions.title("서울");
+            markerOptions.snippet("서울");
+            mMap.addMarker(markerOptions);
+
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+        }
     }
-}
