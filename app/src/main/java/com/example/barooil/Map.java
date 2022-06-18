@@ -25,7 +25,7 @@ public class Map extends AppCompatActivity
         }
 
         @Override
-        public void onMapReady(final GoogleMap googleMap) { //이부분을 API 활용 해야할듯
+        public void onMapReady(final GoogleMap googleMap) { //이부분을 API 활용 해야할듯.
 
             mMap = googleMap;
 
