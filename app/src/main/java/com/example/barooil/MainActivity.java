@@ -9,6 +9,15 @@ import android.util.TimeUtils;
 import android.view.View;
 import android.widget.Button;
 
+/*
+url 불러오는 클래스 apiconnect
+setmember 메소드로 좌표,거리,제품 지정
+json 파싱 및 정렬 클래스 jsonpaser
+api 데이터는 jsonpaser 클래스의 각 Arraylist 변수들에 저장된다 (id,ditance,price,x_location,y_location)
+
++ api 가 받는 데이터와 주는 데이터는 좌표 값이고 구글맵은 경도와 위도 이므로 변환할 필요가 있음
+ */
+
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         apiconnect apicon = new apiconnect();
-        apicon.start();
-
+        apicon.start();// api 데이터 취득 시작
         Button mapbutton = (Button) findViewById(R.id.changemap);
         mapbutton.setOnClickListener(new View.OnClickListener() {
             @Override
