@@ -7,13 +7,14 @@
     tools:context=".Map">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="지도"
         android:textAlignment="center"
-        android:textSize="30sp"
         android:textColor="#4b89dc"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,18 +23,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.041" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Map" >
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:context=".Map"
+        tools:layout_editor_absoluteX="0dp">
 
         <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/map"
-            tools:context=".MapsActivity"
-            android:name="com.google.android.gms.maps.SupportMapFragment" />
+            tools:context=".MapsActivity" />
     </LinearLayout>
     />
 </androidx.constraintlayout.widget.ConstraintLayout>
