@@ -12,7 +12,7 @@ public class apiconnect extends Thread {
     double x=314681.8;          // 멤버 기본값 설정
     double y=544837;
     int radius=1500;
-    int sort=1;
+    int sort=2;
     String prodcd=("B027");
 
     @Override
@@ -41,7 +41,7 @@ public class apiconnect extends Thread {
             }
 
             String result = buffer.toString();
-            jsonpaser.Jsonpaser(result);
+            jsonpaser.Jsonpaser(result, sort);
         }
         catch (Exception e) {
         }

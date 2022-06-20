@@ -16,6 +16,12 @@ json 파싱 및 정렬 클래스 jsonpaser
 api 데이터는 jsonpaser 클래스의 각 Arraylist 변수들에 저장된다 (id,ditance,price,x_location,y_location)
 
 + api 가 받는 데이터와 주는 데이터는 좌표 값이고 구글맵은 경도와 위도 이므로 변환할 필요가 있음
+
+좌표 변환법
+        GeoPoint a = new GeoPoint(x좌표,y좌표)
+        GeoPoint b = GeoTrans.convert(GeoTrans.KATEC,GeoTrans.GEO,a)
+    a,b 는 원하는 이름
+    위경도 -> 카텍 좌표는 KATEC -> GEO, GEO -> KATEC 으로 변경
  */
 
 public class MainActivity extends AppCompatActivity {
